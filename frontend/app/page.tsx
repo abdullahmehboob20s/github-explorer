@@ -315,8 +315,8 @@ export default function HomePage() {
                   <h4 className="font-semibold mb-2">Created by</h4>
                   <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
                     <li><strong>EB24210106011</strong>, <a href="https://github.com/abdullahmehboob20s" target="_blank" className="uppercase underline">Abdullah Mehboob</a></li>
-                    <li><strong>EB24210106068</strong>, <a href="" target="_blank" className="uppercase underline">Muhammad Hamza</a></li>
-                    <li><strong>EB24210106117</strong>, <a href="" target="_blank" className="uppercase underline">Suleman</a></li>
+                    <li><strong>EB24210106068</strong>, <a href="https://github.com/HamzaQaisrani5" target="_blank" className="uppercase underline">Muhammad Hamza</a></li>
+                    <li><strong>EB24210106117</strong>, <a href="https://github.com/SyedMuhammadSuleman-04" target="_blank" className="uppercase underline">Suleman</a></li>
                     <li><strong>EB24210106104</strong>, <a href="" target="_blank" className="uppercase underline">Shahzad</a></li>
                   </ul>
                 </div>
