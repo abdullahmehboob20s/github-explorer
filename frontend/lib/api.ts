@@ -9,7 +9,9 @@ import type {
   SearchHistory,
 } from "./types";
 
-const API_BASE = "http://localhost:8000/api";
+// const API_BASE = "http://localhost:8000/api";
+const API_BASE =
+  "https://5e7630c9-46b4-4409-b8cd-c60889683555-00-2ee2iri3y9rm1.picard.replit.dev/api";
 
 // Enhanced fetch with error handling and CORS
 async function apiRequest<T>(url: string, options?: RequestInit): Promise<T> {
