@@ -3,6 +3,8 @@ package handlers;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
+import utils.CorsUtil;
+
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
@@ -13,6 +15,10 @@ public class UserReposHandler implements HttpHandler {
     @Override
     public void handle(HttpExchange exchange) throws IOException {
         System.out.println("UserReposHandler triggered");
+
+        if (CorsUtil.handlePreflight(exchange)) return;
+
+        CorsUtil.addCORSHeaders(exchange);
 
         String path = exchange.getRequestURI().getPath(); // /api/user-repos/username
         String[] segments = path.split("/");

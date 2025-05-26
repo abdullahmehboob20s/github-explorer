@@ -3,6 +3,8 @@ package handlers;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
+import utils.CorsUtil;
+
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
@@ -12,6 +14,9 @@ import java.util.Scanner;
 public class ReadmeHandler implements HttpHandler {
     @Override
     public void handle(HttpExchange exchange) throws IOException {
+        if (CorsUtil.handlePreflight(exchange)) return;
+        CorsUtil.addCORSHeaders(exchange);
+        
         String query = exchange.getRequestURI().getQuery(); // owner=...&repo=...
         String owner = null;
         String repo = null;

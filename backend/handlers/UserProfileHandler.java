@@ -3,6 +3,8 @@ package handlers;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
+import utils.CorsUtil;
+
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
@@ -12,7 +14,13 @@ import java.util.Scanner;
 public class UserProfileHandler implements HttpHandler {
     @Override
     public void handle(HttpExchange exchange) throws IOException {
+        
+        
         System.out.println("Incoming request...");
+
+        if (CorsUtil.handlePreflight(exchange)) return;
+        
+        CorsUtil.addCORSHeaders(exchange);
 
         String path = exchange.getRequestURI().getPath();
         String[] segments = path.split("/");

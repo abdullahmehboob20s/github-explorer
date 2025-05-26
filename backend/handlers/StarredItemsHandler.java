@@ -3,6 +3,7 @@ package handlers;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import store.StarredUsersStore;
+import utils.CorsUtil;
 import store.StarredReposStore;
 
 import java.io.IOException;
@@ -12,6 +13,9 @@ import java.util.List;
 public class StarredItemsHandler implements HttpHandler {
     @Override
     public void handle(HttpExchange exchange) throws IOException {
+        if (CorsUtil.handlePreflight(exchange)) return;
+        CorsUtil.addCORSHeaders(exchange);
+        
         if (!exchange.getRequestMethod().equalsIgnoreCase("GET")) {
             send(exchange, 405, "{\"error\":\"Method not allowed\"}");
             return;

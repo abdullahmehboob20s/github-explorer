@@ -3,6 +3,7 @@ package handlers;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import store.SearchHistoryStore;
+import utils.CorsUtil;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -11,6 +12,9 @@ import java.util.List;
 public class HistoryHandler implements HttpHandler {
     @Override
     public void handle(HttpExchange exchange) throws IOException {
+        if (CorsUtil.handlePreflight(exchange)) return;
+        CorsUtil.addCORSHeaders(exchange);
+        
         if (!exchange.getRequestMethod().equalsIgnoreCase("GET")) {
             send(exchange, 405, "{\"error\":\"Method not allowed\"}");
             return;

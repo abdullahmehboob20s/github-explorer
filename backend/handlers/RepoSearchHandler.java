@@ -3,6 +3,8 @@ package handlers;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
+import utils.CorsUtil;
+
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
@@ -13,6 +15,9 @@ import java.util.Scanner;
 public class RepoSearchHandler implements HttpHandler {
     @Override
     public void handle(HttpExchange exchange) throws IOException {
+        if (CorsUtil.handlePreflight(exchange)) return;
+        CorsUtil.addCORSHeaders(exchange);
+        
         String query = exchange.getRequestURI().getQuery(); // q=...&page=...&limit=...
         String keyword = null;
         int page = 1;
