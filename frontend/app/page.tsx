@@ -312,6 +312,16 @@ export default function HomePage() {
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
+                  <h4 className="font-semibold mb-2">Created by</h4>
+                  <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
+                    <li><strong>EB24210106011</strong>, <a href="https://github.com/abdullahmehboob20s" target="_blank" className="uppercase underline">Abdullah Mehboob</a></li>
+                    <li><strong>EB24210106068</strong>, <a href="" target="_blank" className="uppercase underline">Muhammad Hamza</a></li>
+                    <li><strong>EB24210106117</strong>, <a href="" target="_blank" className="uppercase underline">Suleman</a></li>
+                    <li><strong>EB24210106104</strong>, <a href="" target="_blank" className="uppercase underline">Shahzad</a></li>
+                  </ul>
+                </div>
+
+                <div>
                   <h4 className="font-semibold mb-2">Features</h4>
                   <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
                     <li>Search GitHub users and repositories with pagination</li>
@@ -323,6 +333,7 @@ export default function HomePage() {
                     <li>Responsive design with dark/light mode</li>
                   </ul>
                 </div>
+
                 <div>
                   <h4 className="font-semibold mb-2">Tech Stack</h4>
                   <div className="flex flex-wrap gap-2">

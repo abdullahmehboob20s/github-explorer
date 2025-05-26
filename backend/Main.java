@@ -5,7 +5,8 @@ public class Main {
     public static void main(String[] args) throws Exception {
         System.out.println("\n");
 
-        int port = 8000;
+        // int port = 8000;
+        int port = Integer.parseInt(System.getenv().getOrDefault("PORT", "8000"));
         HttpServer server = HttpServer.create(new InetSocketAddress(port), 0);
         Server.registerRoutes(server);
         server.setExecutor(null); // default executor
